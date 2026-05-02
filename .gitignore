@@ -1,6 +1,7 @@
 # =============================================================================
-# Laravel 12 + Livewire 4 — .gitignore (CORREGIDO)
+# Laravel 12 + Livewire 4 — .gitignore
 # =============================================================================
+
 
 # -----------------------------------------------------------------------------
 # Dependencies
@@ -8,12 +9,14 @@
 /vendor
 /node_modules
 
+
 # -----------------------------------------------------------------------------
 # Build / compiled assets
 # -----------------------------------------------------------------------------
 /public/build
 /public/hot
 /public/storage
+
 
 # -----------------------------------------------------------------------------
 # Environment & secrets
@@ -26,41 +29,63 @@
 /storage/*.key
 /storage/keys/
 
-# -----------------------------------------------------------------------------
-# Storage — General Rules
-# -----------------------------------------------------------------------------
-/storage/logs/*
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/testing/*
-/storage/framework/views/*
-/storage/framework/livewire/*
-/storage/app/public/*
-/storage/app/private/*
 
 # -----------------------------------------------------------------------------
-# EXCEPCIONES: NO ignorar archivos .gitkeep
-# Esto obliga a Git a subir las carpetas vacías
+# Storage — logs
 # -----------------------------------------------------------------------------
-!/storage/logs/.gitkeep
+/storage/logs/
+# Si prefieres conservar la carpeta pero ignorar los archivos:
+# /storage/logs/*.log
+
+
+# -----------------------------------------------------------------------------
+# Storage — framework (caché, sesiones, vistas compiladas)
+# -----------------------------------------------------------------------------
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/testing/
+/storage/framework/views/
+
+
+# -----------------------------------------------------------------------------
+# Storage — archivos subidos por usuarios / datos de app
+# -----------------------------------------------------------------------------
+/storage/app/public/
+/storage/app/private/
+# Conserva la estructura de carpetas mediante los .gitkeep
+!/storage/app/public/.gitkeep
+!/storage/app/private/.gitkeep
 !/storage/framework/cache/.gitkeep
 !/storage/framework/sessions/.gitkeep
 !/storage/framework/testing/.gitkeep
 !/storage/framework/views/.gitkeep
-!/storage/framework/livewire/.gitkeep
-!/storage/app/public/.gitkeep
-!/storage/app/private/.gitkeep
+!/storage/logs/.gitkeep
+
 
 # -----------------------------------------------------------------------------
-# Pail & Testing
+# Livewire — caché de componentes (Livewire 4 Volt / Synthetic)
+# -----------------------------------------------------------------------------
+/storage/framework/livewire/
+!/storage/framework/livewire/.gitkeep
+
+
+# -----------------------------------------------------------------------------
+# Pail (log viewer de Laravel)
 # -----------------------------------------------------------------------------
 /storage/pail
+
+
+# -----------------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------------
 /.phpunit.cache
 .phpunit.result.cache
 /coverage/
+/storage/framework/testing/
+
 
 # -----------------------------------------------------------------------------
-# IDEs, editores y Sistema
+# IDEs y editores
 # -----------------------------------------------------------------------------
 /.fleet
 /.idea
@@ -73,12 +98,28 @@
 .DS_Store
 Thumbs.db
 
+
 # -----------------------------------------------------------------------------
-# npm / Miscelánea
+# Homestead / Vagrant
+# -----------------------------------------------------------------------------
+Homestead.json
+Homestead.yaml
+.vagrant/
+
+
+# -----------------------------------------------------------------------------
+# npm / yarn
 # -----------------------------------------------------------------------------
 npm-debug.log
 yarn-error.log
+
+
+# -----------------------------------------------------------------------------
+# Miscelánea
+# -----------------------------------------------------------------------------
 *.cache
 *.tmp
 *.swp
+*.swo
 *.bak
+storage/logs/laravel.log
